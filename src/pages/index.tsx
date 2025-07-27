@@ -86,7 +86,6 @@ export function HomeInner() {
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative flex flex-col justify-center px-4 items-center h-full w-full bg-black repeating-square-background">
         <AnimatePresence>

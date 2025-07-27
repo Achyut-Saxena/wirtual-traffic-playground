@@ -159,10 +159,15 @@ export default function Playground({
   }, [agentVideoTrack, config, roomState]);
 
   useEffect(() => {
+    // Handle special case for white color which doesn't have shade variants
+    let themeColor = config.settings.theme_color === "white" 
+      ? "#ffffff" 
+      // @ts-ignore
+      : tailwindTheme.colors[config.settings.theme_color]["500"];
+    
     document.body.style.setProperty(
       "--lk-theme-color",
-      // @ts-ignore
-      tailwindTheme.colors[config.settings.theme_color]["500"],
+      themeColor
     );
     document.body.style.setProperty(
       "--lk-drop-shadow",
@@ -458,19 +463,7 @@ export default function Playground({
             <AudioInputTile trackRef={localMicTrack} />
           </ConfigurationPanelItem>
         )}
-        <div className="w-full">
-          <ConfigurationPanelItem title="Color">
-            <ColorPicker
-              colors={themeColors}
-              selectedColor={config.settings.theme_color}
-              onSelect={(color) => {
-                const userSettings = { ...config.settings };
-                userSettings.theme_color = color;
-                setUserSettings(userSettings);
-              }}
-            />
-          </ConfigurationPanelItem>
-        </div>
+        {/* Color selection removed as requested */}
         {config.show_qr && (
           <div className="w-full">
             <ConfigurationPanelItem title="QR Code">

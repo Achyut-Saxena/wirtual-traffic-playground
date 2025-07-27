@@ -33,11 +33,13 @@ export const PlaygroundHeader = ({
       }}
     >
       <div className="flex items-center gap-3 basis-2/3">
-        <div className="flex lg:basis-1/2">
-          <a href="https://livekit.io">{logo ?? <LKLogo />}</a>
-        </div>
-        <div className="lg:basis-1/2 lg:text-center text-xs lg:text-base lg:font-semibold text-white">
-          {title}
+        <div className="flex items-center">
+          <div className="text-white">
+            <VirtualAgentLogo />
+          </div>
+          <div className="text-white text-xl font-semibold ml-4">
+            VIRTUAL AGENT'S PLAYGROUND
+          </div>
         </div>
       </div>
       <div className="flex basis-1/3 justify-end items-center gap-2">
@@ -73,39 +75,45 @@ export const PlaygroundHeader = ({
   );
 };
 
-const LKLogo = () => (
+const VirtualAgentLogo = () => (
   <svg
-    width="28"
-    height="28"
-    viewBox="0 0 32 32"
+    width="200"
+    height="60"
+    viewBox="0 0 800 220"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clipPath="url(#clip0_101_119699)">
+    <g>
+      {/* Shield outline */}
       <path
-        d="M19.2006 12.7998H12.7996V19.2008H19.2006V12.7998Z"
-        fill="currentColor"
+        d="M200 10 C100 10 20 50 20 150 C20 260 100 290 200 350 C300 290 380 260 380 150 C380 50 300 10 200 10 Z"
+        stroke="currentColor"
+        strokeWidth="12"
+        fill="none"
       />
-      <path
-        d="M25.6014 6.40137H19.2004V12.8024H25.6014V6.40137Z"
-        fill="currentColor"
-      />
-      <path
-        d="M25.6014 19.2002H19.2004V25.6012H25.6014V19.2002Z"
-        fill="currentColor"
-      />
-      <path d="M32 0H25.599V6.401H32V0Z" fill="currentColor" />
-      <path d="M32 25.5986H25.599V31.9996H32V25.5986Z" fill="currentColor" />
-      <path
-        d="M6.401 25.599V19.2005V12.7995V6.401V0H0V6.401V12.7995V19.2005V25.599V32H6.401H12.7995H19.2005V25.599H12.7995H6.401Z"
-        fill="white"
-      />
+      
+      {/* Robot head */}
+      <rect x="125" y="100" width="150" height="110" rx="10" stroke="currentColor" strokeWidth="12" fill="none" />
+      
+      {/* Robot eyes */}
+      <circle cx="165" cy="145" r="15" fill="currentColor" />
+      <circle cx="235" cy="145" r="15" fill="currentColor" />
+      
+      {/* Antenna */}
+      <line x1="200" y1="100" x2="200" y2="60" stroke="currentColor" strokeWidth="12" />
+      <circle cx="200" cy="50" r="10" fill="currentColor" />
+      
+      {/* Robot ears */}
+      <line x1="125" y1="130" x2="105" y2="130" stroke="currentColor" strokeWidth="12" />
+      <line x1="275" y1="130" x2="295" y2="130" stroke="currentColor" strokeWidth="12" />
+      
+      {/* Robot mouth */}
+      <line x1="150" y1="190" x2="250" y2="190" stroke="currentColor" strokeWidth="10" />
+      
+      {/* Decorative bottom elements */}
+      <path d="M170 220 C180 240 220 240 230 220" stroke="currentColor" strokeWidth="12" fill="none" />
+      <path d="M150 220 C160 250 240 250 250 220" stroke="currentColor" strokeWidth="12" fill="none" />
     </g>
-    <defs>
-      <clipPath id="clip0_101_119699">
-        <rect width="32" height="32" fill="white" />
-      </clipPath>
-    </defs>
   </svg>
 );
 
